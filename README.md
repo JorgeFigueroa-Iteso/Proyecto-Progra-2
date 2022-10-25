@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2)
 
 ## Descripción
-Seguir la rúbrica de evauación -> [Evaluación de exp matemáticas.pdf](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2/blob/main/Evaluación%20de%20exp%20matemáticas.pdf)
+Seguir la rúbrica de evauación -> [Evaluación de expresiones matemáticas](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2/blob/main/Evaluación%20de%20exp%20matemáticas.pdf)
 
 Este se realizará SIN interfaz gráfica, por lo que será en consola
 
