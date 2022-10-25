@@ -1,19 +1,27 @@
 # Proyecto 2 - Evaluador de expresiones matemáticas
 ## Evalucador de expresiones matemáticas
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica/blob/main/main.c)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2)
 
 ## Descripción
-Seguir la rúbrica de evauación -> [Evaluación de exp matemáticas.pdf]
+Seguir la rúbrica de evauación -> [Evaluación de expresiones matemáticas](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2/blob/main/Evaluación%20de%20exp%20matemáticas.pdf)
 
 Este se realizará SIN interfaz gráfica, por lo que será en consola
 
 - Video para la explicación del proyecto: 
-<img src="https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png" alt="drawing" width="200"/>
+<p></p><a href="http://magiesimonroy.ca/"><img src="https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png" alt="drawing" width="200"/></a>
 
 ## Uso
+
 > Es un proyecto personal, no es para el público, el archivo ".exe", pero no el .c
 
 > Es un Evalucador de expresiones matemáticas, como se mecionó anteriormente, con un menú que se mostrará en la terminal
+
+> Si una expresión matemática es incorrecta, se debe de mostrar en pantalla que la expresión que ingresó el usuario NO es correcta
+
+> Notación que se utiliza en el programa: "-", "/", "*", y el uso de los corchetes tendrá que ser el siguiente:
+> 	8/4/2 -> (8/4)/2 | 2+3*4 -> 2+(3*4)
+> También es válido:
+> 	(2+(3*4)) -> ((2+30*4))
 
 ## Colaboradores
 - Enoch Joaquín Álvarez Goñi
@@ -21,7 +29,8 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 - Jorge Ramón Figueroa Maya
 
 ## Inspectores
-- 'Por decidir'
+- [ ] 'Por decidir'
+
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
 
