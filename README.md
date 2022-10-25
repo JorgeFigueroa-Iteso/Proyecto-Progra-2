@@ -12,6 +12,12 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 
 ## Uso
 
+```diff
++ a
+
+- b
+```
+
 
 > Es un proyecto personal, no es para el público, el archivo ".exe", pero no el .c
 
