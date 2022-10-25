@@ -8,7 +8,7 @@ Seguir la rúbrica de evauación -> [Evaluación de exp matemáticas.pdf](https:
 Este se realizará SIN interfaz gráfica, por lo que será en consola
 
 - Video para la explicación del proyecto: 
-<img src="https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png" alt="drawing" width="200"/>
+<img alt="http://magiesimonroy.ca/" src="https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png" alt="drawing" width="200"/>
 
 ## Uso
 
