@@ -1,9 +1,9 @@
 # Proyecto 2 - Evaluador de expresiones matemáticas
 ## Evalucador de expresiones matemáticas
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica/blob/main/main.c)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2)
 
 ## Descripción
-Seguir la rúbrica de evauación -> [Evaluación de exp matemáticas.pdf]
+Seguir la rúbrica de evauación -> [![Evaluación de exp matemáticas.pdf](https://github.com/JorgeFigueroa-Iteso/Proyecto-Progra-2/blob/main/Evaluación%20de%20exp%20matemáticas.pdf)]
 
 Este se realizará SIN interfaz gráfica, por lo que será en consola
 
@@ -23,15 +23,14 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 > También es válido:
 > 	(2+(3*4)) -> ((2+30*4))
 
-
-
 ## Colaboradores
 - Enoch Joaquín Álvarez Goñi
 - José Emiliano Figueroa Hernandez
 - Jorge Ramón Figueroa Maya
 
 ## Inspectores
-- 'Por decidir'
+- [ ] 'Por decidir'
+
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
 
