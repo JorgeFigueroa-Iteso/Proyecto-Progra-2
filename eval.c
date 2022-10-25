@@ -1,4 +1,3 @@
-/* Branch - Ramón */
 #include "eval.h"
 
 #include <stdlib.h>
@@ -6,7 +5,5 @@
 #include <stddef.h>
 #include <string.h>
 
-int main(void){
-	
-	return 0;
-}
+/*	<--- Comienzo de operaciones desde el .h --->	*/
+
