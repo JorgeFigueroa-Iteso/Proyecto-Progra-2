@@ -11,9 +11,20 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 <img src="https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png" alt="drawing" width="200"/>
 
 ## Uso
-> Es un proyecto personal, no es para el público, el archivo ".exe", pero no el .c
 
-> Es un Evalucador de expresiones matemáticas, como se mecionó anteriormente, con un menú que se mostrará en la terminal
+```
+Es un proyecto personal, no es para el público, el archivo ".exe", pero no el .c
+
+Es un Evalucador de expresiones matemáticas, como se mecionó anteriormente, con un menú que se mostrará en la terminal
+
+Si una expresión matemática es incorrecta, se debe de mostrar en pantalla que la expresión que ingresó el usuario NO es correcta
+
+Notación que se utiliza en el programa: "-", "/", "*", y el uso de los corchetes tendrá que ser el siguiente:
+	8/4/2 -> (8/4)/2 | 2+3*4 -> 2+(3*4)
+También es válido:
+	(2+(3*4)) -> ((2+30*4))
+
+```
 
 ## Colaboradores
 - Enoch Joaquín Álvarez Goñi
