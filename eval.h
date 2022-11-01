@@ -21,7 +21,7 @@ Queue queueCreate(size_t);
 int queueSize(Queue);
 
 //bool queueEmpty(Queue);
-void queueDestry(Queue);
+void queueDestroy(Queue);
 
 //agrega un elemento al final del queue
 void enqueue(Queue, Data);
