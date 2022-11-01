@@ -2,8 +2,9 @@
 #define EVAL_H_
 
 
-typedef void *Type
-evalErrores(int);
+//definicion de expresiones (operador y operando)
+typedef char * opdr;
+typedef double * opdo; 
 
 
 
