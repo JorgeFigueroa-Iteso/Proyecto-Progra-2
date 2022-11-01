@@ -17,22 +17,23 @@ typedef struct queue * Queue;
 
 Queue queueCreate(size_t);
 
+//agrega un elemento al final del queue
+void enqueue(Queue, Data);
+
 //retorna el tamaño del queue
 int queueSize(Queue);
 
 //bool queueEmpty(Queue);
 void queueDestroy(Queue);
 
-//agrega un elemento al final del queue
-void enqueue(Queue, Data);
 
 //muestra y remueve el primer elemento en el queue
-Data dequeue(Queue);
+//SData deQueue(Queue);
 
 //muestra el primer elemento en el queue
 Data peek(Queue);
 
-
+bool queueEmpty(Queue);
 
 
 
