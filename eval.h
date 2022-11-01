@@ -20,7 +20,7 @@ Queue queueCreate(size_t);
 //retorna el tamaño del queue
 int queueSize(Queue);
 
-bool queueEmpty(Queue);
+//bool queueEmpty(Queue);
 void queueDestry(Queue);
 
 //agrega un elemento al final del queue

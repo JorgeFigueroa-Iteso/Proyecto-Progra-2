@@ -7,17 +7,25 @@
 
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
-struct strNode{
-	Type data;
-	struct strNode *next;
-}
-typedef struct strNode *Node;
+struct nodeQueue{
+	Data data;
+	struct nodeQueue *next;
+};
+
+typedef struct nodeQueue *Node;
 
 struct strQueue{
-	int opdo;
-	int opor;
 	Node last;
 	Node first;
+	int size;
 	size_t size;
-	unsigned int size;
+};
+
+Queue queueCreate(size_t bytes){
+	Queue new=malloc(sizeof(struct queue));
+	new->first=NULL;
+	new->last=NULL;
+	new->size_data=bytes;
+	new->size=0;
+	return new;
 }
