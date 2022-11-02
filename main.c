@@ -9,7 +9,7 @@
 int main(void){
 
 
-/*
+
 	// QUEUE FUNCIONAL
 	int choice;
 	do
@@ -26,7 +26,7 @@ int main(void){
 		case 0: 
 		    exit(0);
 		case 1: 
-		    printf("\nQueue vacia creada.\n\n");	break;
+		    printf("\n<------  Queue creado  ------>\n\n");	break;
 		case 2:    
 		    queue_insert();							break;
 		case 3: 
@@ -41,7 +41,7 @@ int main(void){
 		    printf("Opcion incorrecta\n");			break;
 		}
 	} while (1);
-*/
+
 
 
 /*

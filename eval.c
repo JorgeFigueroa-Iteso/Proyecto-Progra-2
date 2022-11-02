@@ -29,7 +29,7 @@ void stackPush(){
 		ptr->next= head;
 		head=ptr;
 	}
-	system("timeout /t 3");
+	// system("timeout /t 3");
 }
 
 int stackPop(){
@@ -41,12 +41,12 @@ int stackPop(){
 		head = head->next;
 		free(ptr);
 		printf("%d fue liberado del stack\n", item);
-		system("timeout /t 3");
+		// system("timeout /t 3");
 		return item;
 	} else {
-		printf("No hay elementos en el Stack\n");
+		printf("<------  No hay elementos en el Stack  ------>\n");
 	}
-	system("timeout /t 3");
+	// system("timeout /t 3");
 }
 
 
@@ -54,22 +54,22 @@ int stackPeek(){
 	if (head!=NULL){
 	    int x = head->val;
 	    printf("%d es el ultimo valor que tiene el Stack\n", x);
-		system("timeout /t 3");
+		// system("timeout /t 3");
 	    return x;
 	} else {
-		printf("El Stack esta vacio.\n");
+		printf("<------  Stack vacio  ------>\n");
 	}
-	system("timeout /t 3");
+	// system("timeout /t 3");
 }
 
 bool stackisEmpty(){
 	if(head == NULL){
         printf("Stack vacio\n");
-		system("timeout /t 3");
+		// system("timeout /t 3");
         return true;
     }
     printf("Stack contiene elementos\n");
-	system("timeout /t 3");
+	// system("timeout /t 3");
     return false;
 }
 
@@ -101,7 +101,7 @@ void queue_insert()
         rear->link = temp;
         rear = temp;
     }
-	system("timeout /t 3");
+	// system("timeout /t 3");
 }
 
 // delete elements from queue
@@ -112,16 +112,16 @@ void queue_delete()
     temp = front;
     if (front == NULL)
     {
-        printf("Queue esta vacio\n");
+        printf("<------  Queue vacio  ------>\n\n");
         front = rear = NULL;
     }
     else
     {
-        printf("Elemento eliminado: %d\n", front->data);
+        printf("<------  Elemento eliminado: %d------>\n\n", front->data);
         front = front->link;
         free(temp);
     }
-    system("timeout /t 3");
+    // system("timeout /t 3");
 }
 
 // check if queue is empty or not
@@ -130,8 +130,8 @@ void queue_check()
     if (front == NULL)
         printf("\nQueue esta vacio\n");
     else
-        printf("*************** Hay elementos en el queue **************\n");
-    system("timeout /t 3");
+        printf("<------  Hay elementos en el queue  ------>\n\n");
+    // system("timeout /t 3");
 }
 
 // returns first element of queue
@@ -139,11 +139,11 @@ void queue_first_element()
 {
     if (front == NULL)
     {
-        printf("**************** Queue esta vacio ****************\n");
+        printf("<------  Queue esta vacio  ------>\n\n");
     }
     else
-        printf("**************** El elemento frontall es: %d ***********\n", front->data);
-    system("timeout /t 3");
+        printf("<------  Elemento frontal es: %d  ------>\n\n", front->data);
+    // system("timeout /t 3");
 }
 
 // returns number of entries and displays the elements in queue
@@ -153,16 +153,17 @@ void queue_size()
 
     temp = front;
     int cnt = 0;
-    if (front  ==  NULL)
-    {
-        printf(" Queue vacia \n");
+    if (front  ==  NULL) {
+        printf("<------  Queue esta vacio  ------>\n\n");
+    } else {
+        printf("<------ ");
+        while (temp)
+        {
+            printf("| %2d ", temp->data);
+            temp = temp->link;
+            cnt++;
+        }
+        printf(" | tamano del queue es: %d  ------>\n\n", cnt);
     }
-    while (temp)
-    {
-        printf("%d  ", temp->data);
-        temp = temp->link;
-        cnt++;
-    }
-    printf("********* tamano del queue es: %d ******** \n", cnt);
-    system("timeout /t 3");
+    // system("timeout /t 3");
 }
