@@ -2,6 +2,7 @@
 
 #ifndef EVAL_H_
 #define EVAL_H_
+// #include <stdbool.h>
 
 typedef enum{false, true} bool;
 
@@ -19,7 +20,7 @@ typedef struct strStack *Stack;
 void stackPush();
 int stackPop();
 int stackPeek();
-bool stackisEmpty();
+bool stack_Empty();
 
 
 /*		<------  QUEUE  ------>		*/

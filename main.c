@@ -1,15 +1,14 @@
-/* Branch - Ramón */
+/* Branch Emiliano */
+
 #include "eval.h"
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 
 int main(void){
 
-
-/*
 	// QUEUE FUNCIONAL
 	int choice;
 	do
@@ -41,7 +40,7 @@ int main(void){
 		    printf("Opcion incorrecta\n");			break;
 		}
 	} while (1);
-*/
+
 
 
 /*
@@ -59,7 +58,7 @@ int main(void){
 			case 1: stackPush();	break;
 			case 2: stackPop();		break;
 			case 3: stackPeek();	break;
-			case 4: stackisEmpty(); break;
+			case 4: stack_Empty(); break;
 
 		}
 	} while (1);
