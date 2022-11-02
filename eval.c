@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
+
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
 /*		<------  STACK  ------>		*/
@@ -100,13 +100,13 @@ int stackPeek(){
 }
 
 bool stack_Empty(){
-	if(head == NULL){
+    if(head == NULL){
         printf("Stack vacio\n");
-		system("timeout /t 3");
+        // system("timeout /t 3");
         return true;
     }
     printf("Stack contiene elementos\n");
-	system("timeout /t 3");
+    // system("timeout /t 3");
     return false;
 }
 
