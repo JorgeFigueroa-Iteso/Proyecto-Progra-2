@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <string.h>
-#include <ctype.h>
-#include <stdbool.h>
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
 /*		<------  STACK  ------>		*/
