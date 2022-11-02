@@ -4,13 +4,19 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <string.h>
-
+#include <ctype.h>
+#include <stdbool.h>
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
+
+opdr leerInput();
+
+
+/* <--- queue ---> */
 struct nodeQueue{
 	Data data;
 	struct nodeQueue *next;
-};
+}
 
 typedef struct nodeQueue *Node;
 
@@ -19,17 +25,17 @@ struct strQueue{
 	Node first;
 	int size;
 	size_t size;
-};
+}
 
 Queue queueCreate(size_t bytes){
-	Queue new=malloc(sizeof(struct queue));
+	Queue new=malloc(sizeof(struct strQueue));
 	new->first=NULL;
 	new->last=NULL;
 	new->size_data=bytes;
 	new->size=0;
 
 	return new;
-};
+}
 
 int queueSize(Queue q){
 	if (q!=NULL){
@@ -94,17 +100,35 @@ Data peek(Queue q){
 	}
 }
 
-/*
+
 Data deQueue(Queue q){
 	if (q!=NULL){
 		if (!queueEmpty){
-			***TO DO***
-		}
-	}
-}
+			NodePQ ret=q->first;
+            DATA temp=ret->data;
+            
+            if(ret->next!=NULL){
+                q->first=ret->next;
 
-
-*/
+            }
+            else
+            {
+                q->first=NULL;
+            }
+            free(ret);
+            q->size--;
+            return temp;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+    else{
+        return NULL;
+    }
+   }
+	
 
 void queueDestroy(Queue q){
 	if (q!=NULL){
@@ -117,4 +141,147 @@ void queueDestroy(Queue q){
 	}
 }
 
+
+
+
+/* <--- stack --->*/
+
+struct nodeStack{
+	Data data;
+	struct nodeStack *last;
+}
+
+typedef struct nodeStack * nodePnr;
+
+struct stack{
+	nodePnr top;
+	int size;
+	size_t bytes;
+}
+
+Stack stack_create(size_t bytes){
+    Stack s= malloc(sizeof(struct stack));
+
+    s->bytes=bytes;
+    s->size=0;
+    s->top=NULL;
+    return s;
+
+}
+
+int stack_size(Stack s){
+    if (s!=NULL)
+    {
+        return s->size;
+    }
+    else
+    {
+        return -1;
+    }
+    
+}
+
+bool stack_isEmpty(Stack s){
+    if (s != NULL)
+    {
+        if(s->top==NULL)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return true;
+    }
+    
+}
+
+DATA stack_top(Stack s){
+    if (s!=NULL)
+    {
+        if(s->top!=NULL)
+        {
+            return s->top->data;
+        }
+        else 
+        {
+            return NULL;
+        }
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+NodePS newNode(DATA data){
+    NodePnr new= malloc(sizeof(struct nodePnr));
+    new->data=data;
+    new->last=NULL;
+    return new;
+}
+
+void stack_push(Stack s, DATA data){
+    if(s!=NULL)
+    {
+        NodePnr nd=newNode(data);
+        s->size++;
+        nd->last=s->top;
+        s->top=nd;
+    }
+    else
+    {
+        printf("Error: Stack is null");
+    }
+}
+
+DATA stack_pop(Stack s){
+    if(s!=NULL)
+    {
+        if(s->top!=NULL)
+        {
+            void *temp=s->top->data;
+
+            NodePS new_top=s->top->last;
+            free(s->top);
+            s->top=new_top;
+            s->size--;
+            return temp;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+void stack_destroy(Stack s){
+    if (s!=NULL)
+    {
+        if(s->top!=NULL && s->size!=0)
+        {
+            for(int i=0; i<s->size; i++)
+            {
+                
+                if(s->top!=NULL)
+                {
+                    NodePnr next_node=s->top->last;
+                    //destruye el top 
+                    free(s->top);
+                    //recorre el top
+                    s->top=next_node;
+                }
+            }
+        }
+        free(s);
+    }
+}
 

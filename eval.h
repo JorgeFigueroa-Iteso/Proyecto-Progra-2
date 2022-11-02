@@ -11,7 +11,7 @@ typedef char * opdr;
 typedef double * opdo; 
 
 
-//contenedores
+/* <--- queue --->*/
 
 typedef struct queue * Queue;
 
@@ -28,12 +28,27 @@ void queueDestroy(Queue);
 
 
 //muestra y remueve el primer elemento en el queue
-//SData deQueue(Queue);
+Data deQueue(Queue);
 
 //muestra el primer elemento en el queue
 Data peek(Queue);
 
 bool queueEmpty(Queue);
+
+
+/* <--- stack --->*/
+
+typedef struct stack * Stack
+
+Stack stack_create();
+int stack_size(Stack);
+bool stack_isEmpty(Stack);
+Data stack_top(Stack);
+void stack_push(Stack, DATA);
+Data stack_pop(Stack);
+void stack_destroy(Stack);
+void print_stack(Stack);
+
 
 
 
