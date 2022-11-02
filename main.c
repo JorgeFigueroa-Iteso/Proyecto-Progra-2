@@ -1,6 +1,4 @@
 /* Branch Emiliano */
-//a
-//asfov
 
 #include "eval.h"
 
