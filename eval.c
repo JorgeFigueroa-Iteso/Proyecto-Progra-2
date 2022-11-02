@@ -18,7 +18,7 @@ void stackPush(){
 	int val;
 	struct Node *ptr = (struct Node*)malloc(sizeof(struct Node));
 	printf("Valor a almacenar en el stack: ");
-	scanf("%s", &val);
+	scanf("%d", &val);
 
 	if (head == NULL){
 		ptr->val = val;
@@ -40,7 +40,7 @@ int stackPop(){
 		ptr = head;
 		head = head->next;
 		free(ptr);
-		printf("%c fue liberado del stack", item);
+		printf("%d fue liberado del stack", item);
 		system("timeout /t 3");
 		return item;
 	} else {
@@ -53,7 +53,7 @@ int stackPop(){
 int stackPeek(){
 	if (head!=NULL){
 	    int x = head->val;
-	    printf("%c es el ultimo valor que tiene el Stack\n", x);
+	    printf("%d es el ultimo valor que tiene el Stack\n", x);
 		system("timeout /t 3");
 	    return x;
 	} else {
