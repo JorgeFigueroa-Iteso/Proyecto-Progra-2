@@ -168,9 +168,10 @@ void queue_size()
 }
 
 
-bool parentesis(opdr pss){
+bool parentesis(){
     Stack st=malloc(sizeof(struct Node_Stack));
     int i=0;
+    opdr pss;
 
     while(pss[i]!='\0'){
         if(pss[i]=='('){
