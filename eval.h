@@ -2,7 +2,6 @@
 #define EVAL_H_
 
 #include <stddef.h>
-#include <stdbool.h>
 
 typedef enum {false, true} bool;
 
