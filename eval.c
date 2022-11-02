@@ -87,7 +87,7 @@ struct Node_Queue
 void queue_insert()
 {
     struct Node_Queue *temp;
- 
+
     temp = (struct Node_Queue*)malloc(sizeof(struct Node_Queue));
     printf("Inserte el valor: \n");
     scanf("%d", &temp->data);
@@ -100,15 +100,15 @@ void queue_insert()
     {
         rear->link = temp;
         rear = temp;
-    }    
+    }
 	system("timeout /t 3");
 }
- 
+
 // delete elements from queue
 void queue_delete()
 {
     struct Node_Queue *temp;
- 
+
     temp = front;
     if (front == NULL)
     {
@@ -116,14 +116,14 @@ void queue_delete()
         front = rear = NULL;
     }
     else
-    {    
+    {
         printf("Elemento eliminado: %d\n", front->data);
         front = front->link;
         free(temp);
     }
     system("timeout /t 3");
 }
- 
+
 // check if queue is empty or not
 void queue_check()
 {
@@ -133,7 +133,7 @@ void queue_check()
         printf("*************** Hay elementos en el queue **************\n");
     system("timeout /t 3");
 }
- 
+
 // returns first element of queue
 void queue_first_element()
 {
@@ -142,15 +142,15 @@ void queue_first_element()
         printf("**************** Queue esta vacio ****************\n");
     }
     else
-        printf("**************** El elemento frontall es: %d ***********\n", front->data);        
+        printf("**************** El elemento frontall es: %d ***********\n", front->data);
     system("timeout /t 3");
 }
- 
+
 // returns number of entries and displays the elements in queue
 void queue_size()
 {
     struct Node_Queue *temp;
- 
+
     temp = front;
     int cnt = 0;
     if (front  ==  NULL)
@@ -166,5 +166,3 @@ void queue_size()
     printf("********* tamano del queue es: %d ******** \n", cnt);
     system("timeout /t 3");
 }
-
-
