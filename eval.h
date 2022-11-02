@@ -1,7 +1,6 @@
-#include <stddef.h>
-
 #ifndef EVAL_H_
 #define EVAL_H_
+
 #include <stddef.h>
 #include <stdbool.h>
 
@@ -16,7 +15,7 @@ typedef void * Data;
 typedef struct strQueue *Queue;
 typedef struct strStack *Stack;
 
-typedef char * opdr
+typedef char * opdr;
 
 /*		<------  STACK  ------>		*/
 
