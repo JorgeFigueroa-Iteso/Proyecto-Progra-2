@@ -31,6 +31,7 @@ void stackPush(){
 		ptr->val = val;
 		ptr->next= head;
 		head=ptr;
+    }
 }
 
 int stackPop(){
@@ -179,7 +180,7 @@ bool parentesis(){
             stackPush(st, &pss[i]);
         }
         else if (pss[i]==')'){
-            if (stackPop()==NULL){
+            if (stackPop(pss[i])==NULL){
                 printf("parentecis incompleto\nincorrecto.\n");
                 return false;
             }
