@@ -1,5 +1,6 @@
 /* Branch Emiliano */
 //a
+//asfov
 
 #include "eval.h"
 
@@ -9,7 +10,7 @@
 #include <string.h>
 
 int main(void){
-/*
+
 	// QUEUE FUNCIONAL
 	int choice;
 	do
@@ -41,7 +42,7 @@ int main(void){
 		    printf("Opcion incorrecta\n");			break;
 		}
 	} while (1);
-*/
+
 
 
 /*
