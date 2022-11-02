@@ -58,7 +58,7 @@ int main(void){
 			case 1: stackPush();	break;
 			case 2: stackPop();		break;
 			case 3: stackPeek();	break;
-			case 4: stackisEmpty(); break;
+			case 4: stack_Empty(); break;
 
 		}
 	} while (1);

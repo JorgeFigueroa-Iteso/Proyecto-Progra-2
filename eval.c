@@ -99,7 +99,7 @@ int stackPeek(){
 	system("timeout /t 3");
 }
 
-bool stackisEmpty(){
+bool stack_Empty(){
 	if(head == NULL){
         printf("Stack vacio\n");
 		system("timeout /t 3");
