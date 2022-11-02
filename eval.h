@@ -11,14 +11,23 @@ typedef void * Data;
 
 /*		Dato Genético		*/
 
-// typedef struct strQueue *Queue;
+typedef struct strQueue *Queue;
 typedef struct strStack *Stack;
 
-/*		STACK		*/
+/*		<------  STACK  ------>		*/
 
 void stackPush();
 int stackPop();
 int stackPeek();
 bool stackisEmpty();
 
-/*		QUEUE		*/
+
+/*		<------  QUEUE  ------>		*/
+
+void queue_insert();
+void queue_delete();
+void queue_check();
+void queue_first_element();
+void queue_size();
+
+#endif
