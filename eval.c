@@ -183,7 +183,7 @@ bool parentesis(){
                 return false;
             }
         }
-        i++
+        i++;
     }
     if (stackisEmpty(st)){
         return true;
@@ -206,7 +206,7 @@ bool operador(opdr op){
                 return false;
             }
         }
-        i++
+        i++;
     }
     return true;
 }

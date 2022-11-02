@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-typedef enum{false, true} bool;
+typedef enum {false, true} bool;
 
 /*		Dato Genético		*/
 
