@@ -8,280 +8,165 @@
 #include <stdbool.h>
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
+/*		<------  STACK  ------>		*/
 
-opdr leerInput();
+struct Node_Stack{
+	int val;
+	struct Node_Stack *next;
+};
 
+struct Node_Stack *head;
 
-/* <--- queue ---> */
-struct nodeQueue{
-	Data data;
-	struct nodeQueue *next;
-}
+void stackPush(){
+	int val;
+	struct Node_Stack *ptr = (struct Node_Stack*)malloc(sizeof(struct Node_Stack));
+	printf("Valor a almacenar en el stack: ");
+	scanf("%d", &val);
 
-typedef struct nodeQueue *Node;
-
-struct strQueue{
-	Node last;
-	Node first;
-	int size;
-	size_t size;
-}
-
-Queue queueCreate(size_t bytes){
-	Queue new=malloc(sizeof(struct strQueue));
-	new->first=NULL;
-	new->last=NULL;
-	new->size_data=bytes;
-	new->size=0;
-
-	return new;
-}
-
-int queueSize(Queue q){
-	if (q!=NULL){
-		return q->size;
+	if (head == NULL){
+		ptr->val = val;
+		ptr->next= NULL;
+		head = ptr;
+	} else{
+		ptr->val = val;
+		ptr->next= head;
+		head=ptr;
 	}
-	else{
-		return 0;
+	system("timeout /t 3");
+}
+
+int stackPop(){
+	int item;
+	struct Node_Stack *ptr;
+	if (head!=NULL) {
+		item = head->val;
+		ptr = head;
+		head = head->next;
+		free(ptr);
+		printf("%d fue liberado del stack\n", item);
+		system("timeout /t 3");
+		return item;
+	} else {
+		printf("No hay elementos en el Stack\n");
 	}
+	system("timeout /t 3");
 }
 
-Node newNode(Data data, size_t bytes){
-	Node new=malloc(sizeof(Node));
-	new->data=malloc(size(bytes));
-	memcpy(new->data, data, bytes);
-	new->next=NULL;
 
-	return new;
-}
-
-void enqueue(Queue q, Data data){
-	if (q!=NULL){
-		Node new=newNode(data, q->size_data);
-		if (!queueEmpty(q)){
-			q->first=new;
-			q->last=new;
-			q->size++;		
-		}
-		else{
-			q->last->next=new;
-			q->last=new;
-			q->size++;
-		}
-	}	
-}
-
-//evalua si el queue tiene contenido y en la posicion en la que este esta (first o last)
-bool queueEmpty(Queue q){
-	if (q!=NULL){
-		if (q->size==0 && q->first==NULL){
-			return true;
-		}
-		else{
-			return false;
-		}
+int stackPeek(){
+	if (head!=NULL){
+	    int x = head->val;
+	    printf("%d es el ultimo valor que tiene el Stack\n", x);
+		system("timeout /t 3");
+	    return x;
+	} else {
+		printf("El Stack esta vacio.\n");
 	}
-	else{
-		return true;
-	}
+	system("timeout /t 3");
 }
 
-Data peek(Queue q){
-	if (q!=NULL){
-		if (!queueEmpty(q)){
-			return q->firs->data;
-		}
-		else{
-			return NULL;
-		}
-	}
-	else{
-		return NULL;
-	}
-}
-
-
-Data deQueue(Queue q){
-	if (q!=NULL){
-		if (!queueEmpty){
-			NodePQ ret=q->first;
-            DATA temp=ret->data;
-            
-            if(ret->next!=NULL){
-                q->first=ret->next;
-
-            }
-            else
-            {
-                q->first=NULL;
-            }
-            free(ret);
-            q->size--;
-            return temp;
-        }
-        else
-        {
-            return NULL;
-        }
-    }
-    else{
-        return NULL;
-    }
-   }
-	
-
-void queueDestroy(Queue q){
-	if (q!=NULL){
-		Data temp;
-		while(!queueEmpty(q)){
-			temp=deQueue(q);
-			free(temp);
-		}
-		free(q);
-	}
-}
-
-
-
-
-/* <--- stack --->*/
-
-struct nodeStack{
-	Data data;
-	struct nodeStack *last;
-}
-
-typedef struct nodeStack * nodePnr;
-
-struct stack{
-	nodePnr top;
-	int size;
-	size_t bytes;
-}
-
-Stack stack_create(size_t bytes){
-    Stack s= malloc(sizeof(struct stack));
-
-    s->bytes=bytes;
-    s->size=0;
-    s->top=NULL;
-    return s;
-
-}
-
-int stack_size(Stack s){
-    if (s!=NULL)
-    {
-        return s->size;
-    }
-    else
-    {
-        return -1;
-    }
-    
-}
-
-bool stack_isEmpty(Stack s){
-    if (s != NULL)
-    {
-        if(s->top==NULL)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    else
-    {
+bool stackisEmpty(){
+	if(head == NULL){
+        printf("Stack vacio\n");
+		system("timeout /t 3");
         return true;
     }
-    
+    printf("Stack contiene elementos\n");
+	system("timeout /t 3");
+    return false;
 }
 
-DATA stack_top(Stack s){
-    if (s!=NULL)
+
+
+
+/*		<------  QUEUE  ------>		*/
+
+struct Node_Queue
+{
+    int data;
+    struct Node_Queue *link;
+}*front, *rear;
+
+void queue_insert()
+{
+    struct Node_Queue *temp;
+ 
+    temp = (struct Node_Queue*)malloc(sizeof(struct Node_Queue));
+    printf("Inserte el valor: \n");
+    scanf("%d", &temp->data);
+    temp->link = NULL;
+    if (rear  ==  NULL)
     {
-        if(s->top!=NULL)
-        {
-            return s->top->data;
-        }
-        else 
-        {
-            return NULL;
-        }
+        front = rear = temp;
     }
     else
     {
-        return NULL;
-    }
+        rear->link = temp;
+        rear = temp;
+    }    
+	system("timeout /t 3");
 }
-
-NodePS newNode(DATA data){
-    NodePnr new= malloc(sizeof(struct nodePnr));
-    new->data=data;
-    new->last=NULL;
-    return new;
-}
-
-void stack_push(Stack s, DATA data){
-    if(s!=NULL)
+ 
+// delete elements from queue
+void queue_delete()
+{
+    struct Node_Queue *temp;
+ 
+    temp = front;
+    if (front == NULL)
     {
-        NodePnr nd=newNode(data);
-        s->size++;
-        nd->last=s->top;
-        s->top=nd;
+        printf("Queue esta vacio\n");
+        front = rear = NULL;
     }
     else
-    {
-        printf("Error: Stack is null");
+    {    
+        printf("Elemento eliminado: %d\n", front->data);
+        front = front->link;
+        free(temp);
     }
+    system("timeout /t 3");
 }
-
-DATA stack_pop(Stack s){
-    if(s!=NULL)
+ 
+// check if queue is empty or not
+void queue_check()
+{
+    if (front == NULL)
+        printf("\nQueue esta vacio\n");
+    else
+        printf("*************** Hay elementos en el queue **************\n");
+    system("timeout /t 3");
+}
+ 
+// returns first element of queue
+void queue_first_element()
+{
+    if (front == NULL)
     {
-        if(s->top!=NULL)
-        {
-            void *temp=s->top->data;
-
-            NodePS new_top=s->top->last;
-            free(s->top);
-            s->top=new_top;
-            s->size--;
-            return temp;
-        }
-        else
-        {
-            return NULL;
-        }
+        printf("**************** Queue esta vacio ****************\n");
     }
     else
-    {
-        return NULL;
-    }
+        printf("**************** El elemento frontall es: %d ***********\n", front->data);        
+    system("timeout /t 3");
 }
-
-void stack_destroy(Stack s){
-    if (s!=NULL)
+ 
+// returns number of entries and displays the elements in queue
+void queue_size()
+{
+    struct Node_Queue *temp;
+ 
+    temp = front;
+    int cnt = 0;
+    if (front  ==  NULL)
     {
-        if(s->top!=NULL && s->size!=0)
-        {
-            for(int i=0; i<s->size; i++)
-            {
-                
-                if(s->top!=NULL)
-                {
-                    NodePnr next_node=s->top->last;
-                    //destruye el top 
-                    free(s->top);
-                    //recorre el top
-                    s->top=next_node;
-                }
-            }
-        }
-        free(s);
+        printf(" Queue vacia \n");
     }
+    while (temp)
+    {
+        printf("%d  ", temp->data);
+        temp = temp->link;
+        cnt++;
+    }
+    printf("********* tamano del queue es: %d ******** \n", cnt);
+    system("timeout /t 3");
 }
 
