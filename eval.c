@@ -172,11 +172,11 @@ bool parentesis(opdr pss){
     Stack st=malloc(sizeof(struct Node_Stack));
     int i=0;
 
-    while(pss[i]!="\0"){
-        if(pss[i]=="("){
+    while(pss[i]!='\0'){
+        if(pss[i]=='('){
             stackPush(st, &pss[i]);
         }
-        else if (pss[i]==")"){
+        else if (pss[i]==')'){
             if (stackPop(st)==NULL){
                 printf("parentecis incompleto\nincorrecto.\n");
                 return false;
@@ -194,3 +194,18 @@ bool parentesis(opdr pss){
 }
 
 
+bool operador(opdr op){
+    int i=0;
+
+    while(op[i]!='\0'){
+        if(op[i]==42 || op[i]==43 || op[i]==45 || op[i]==47){
+            if (op[i-1]=='(' || op[i+1]==')' || op[i+1]=='\0')
+            {
+                printf("expresion invalida\noperadores faltantes.\n");
+                return false;
+            }
+        }
+        i++
+    }
+    return true;
+}
