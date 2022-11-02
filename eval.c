@@ -32,41 +32,6 @@ void stackPush(){
 		ptr->next= head;
 		head=ptr;
 
-opdr leerInput();
-
-
-/* <--- queue ---> */
-struct nodeQueue{
-	Data data;
-	struct nodeQueue *next;
-}
-
-typedef struct nodeQueue *Node;
-
-struct strQueue{
-	Node last;
-	Node first;
-	int size;
-	size_t size_data;
-}
-
-Queue queueCreate(size_t bytes){
-	Queue new=malloc(sizeof(struct strQueue));
-	new->first=NULL;
-	new->last=NULL;
-	new->size_data=bytes;
-	new->size=0;
-
-	return new;
-}
-
-int queueSize(Queue q){
-	if (q!=NULL){
-		return q->size;
-	}
-	system("timeout /t 3");
-}
-
 int stackPop(){
 	int item;
 	struct Node_Stack *ptr;
@@ -201,4 +166,31 @@ void queue_size()
     printf("********* tamano del queue es: %d ******** \n", cnt);
     system("timeout /t 3");
 }
+
+
+bool parentesis(opdr pss){
+    Stack st=malloc(sizeof(struct Node_Stack));
+    int i=0;
+
+    while(pss[i]!="\0"){
+        if(pss[i]=="("){
+            stackPush(st, &pss[i]);
+        }
+        else if (pss[i]==")"){
+            if (stackPop(st)==NULL){
+                printf("parentecis incompleto\nincorrecto.\n");
+                return false;
+            }
+        }
+        i++
+    }
+    if (stackisEmpty(st)){
+        return true;
+    }
+    else{
+        printf("parentecis incompleto\nincorrecto.\n");
+        return false;  
+    }
+}
+
 

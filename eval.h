@@ -16,6 +16,8 @@ typedef void * Data;
 typedef struct strQueue *Queue;
 typedef struct strStack *Stack;
 
+typedef char * opdr
+
 /*		<------  STACK  ------>		*/
 
 void stackPush();
