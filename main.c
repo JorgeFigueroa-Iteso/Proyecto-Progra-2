@@ -55,7 +55,7 @@ int main(void){
 		scanf("%d",&choice);
 		switch(choice){
 			case 0: exit(0);
-			case 1: stackPush(); parentesis();	break;
+			case 1: stackPush();	break;
 			case 2: stackPop();		break;
 			case 3: stackPeek();	break;
 			case 4: stackisEmpty(); break;
