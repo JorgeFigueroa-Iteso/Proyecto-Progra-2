@@ -8,8 +8,15 @@
 
 int main(void){
 	
-	int choice=0;
+	int q1;
 
+	// Queue queueCreate(sizeof(char));
+
+/**
+ * 
+ * STACK FUNCIONAL
+ * 
+ * int choice=0;
 	do
 	{
 		system("cls");
@@ -26,6 +33,6 @@ int main(void){
 
 		}
 	} while (1);
-	
+*/	
 	return 0;
 }

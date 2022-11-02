@@ -72,5 +72,3 @@ bool stackisEmpty(){
 	system("timeout /t 3");
     return false;
 }
-
-
