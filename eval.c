@@ -97,12 +97,13 @@ void queue_insert()
     if (rear  ==  NULL)
     {
         front = rear = temp;
+        parentesis(temp);   
     }
     else
     {
         rear->link = temp;
         rear = temp;
-    }    
+    } 
 	system("timeout /t 3");
 }
  
@@ -171,8 +172,8 @@ void queue_size()
 
 
 bool parentesis(){
-    Queue st=malloc(sizeof(struct Node_Queue));
-    int i=0;
+    Stack st=malloc(sizeof(struct Node_Stack));
+    int i=0
     opdr pss;
 
     while(pss[i]!='\0'){
@@ -188,7 +189,7 @@ bool parentesis(){
         }
         i++;
     }
-    if (!=queue_check(st)){
+    if (stackisEmpty(st)){
         return true;
     }
     else{
