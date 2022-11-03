@@ -54,6 +54,7 @@ int main() {
                 char op;
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
+
 /*
                 switch(x){
                     case '+':
