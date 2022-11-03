@@ -9,7 +9,7 @@
 
 int main(void){
 
-	struct nodeSTK st=stack_create(size_t input);
+	nodeSTK st=stack_create(sizeof(char));
 
 	char input[100];
 	int i=0;
@@ -22,12 +22,12 @@ int main(void){
 		if (input[i]=='(' || input[i] == ')') {
 
 			printf("Parentesis: %c\n", input[i]);
-			stack_Push(st, input);
+			stack_push(st, input);
 
 		} else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
 
 			printf("Operador: %c\n", input[i]);
-			stack_Push(st, input);
+			stack_push(st, input);
 
 		} else {
 			int ia = input[i] - '0';
@@ -51,7 +51,7 @@ int main(void){
 		if (stack_isEmpty(st)==true){
 			exit(0);
 		} else {
-			stack_Pop(st);
+			stack_pop(st);
 		}
 		
 	} while (1);

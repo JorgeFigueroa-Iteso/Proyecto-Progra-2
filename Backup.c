@@ -1,4 +1,4 @@
-#include "Array.h"
+#include "eval.h"
 
 #include<stdio.h>
 #include<ctype.h>
@@ -7,17 +7,18 @@
 
 char stack[100];
 int top = -1;
-
-void stackPush(char x) {
+/*
+void stack_push(char x) {
     stack[++top] = x;
 }
 
-char stackPop() {
+char stack_pop() {
     if(top == -1)
         return -1;
     else
         return stack[top--];
 }
+*/
 
 int ordenJerarquico(char x) {
     if(x == '(')
@@ -31,27 +32,7 @@ int ordenJerarquico(char x) {
 
 
 int main() {
-
-    // A
-
-    Array A=createArray(20, 4);
     int j=0;
-
-    // int n=10;
-    // setArray(A, 21, &n);
-    // n=20;
-    // setArray(A, -1, &n);
-    // n=30;
-    // setArray(A, -2, &n);
-    // int *r;
-    // for (int i=0;i<sizeArray(A); i++){
-    //     r=getArray(A,i);
-    //     printf(" %d ", *r);   
-    // }
-
-    // A
-
-
 
     char input[100];
     char *ptr, x;
@@ -68,10 +49,10 @@ int main() {
             ++j;
         }
         else if(*ptr == '('){
-            stackPush(*ptr);
+            stack_push(*ptr);
         }
         else if(*ptr == ')') {
-            while((x = stackPop()) != '('){
+            while((x = stack_pop()) != '('){
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
                 setArray(A, j, &x);
@@ -81,20 +62,21 @@ int main() {
         else {
             while(ordenJerarquico(stack[top]) >= ordenJerarquico(*ptr)){
                 // Imprime los operadores con su orden respectivo
-                char n = stackPop();
+                char n = stack_pop();
                 printf("%c ", n);
                 setArray(A, j, &n);
                 ++j;
             }
-            stackPush(*ptr);
+            stack_push(*ptr);
         }
         ptr++;
     }
     
     while(top != -1) {
         // Imprime lo que esta fuera de los paréntesis
-        char n = stackPop();
+        char n = stack_pop();
         printf("%c ",n);
         setArray(A, j, &n);
         ++j;
     }
+}
