@@ -1,16 +1,20 @@
 #include "Array.h"
+#include "eval.h"
 
-#include<stdio.h>
-#include<ctype.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <string.h>
+#include <ctype.h>
 
 char stack[100];
 int top = -1;
 
-void stackPush(char x) {
+void StackPush_B(char x) {
     stack[++top] = x;
 }
 
-char stackPop() {
+char StackPop_B() {
     if(top == -1)
         return -1;
     else
@@ -28,28 +32,6 @@ int ordenJerarquico(char x) {
 }
 
 int main() {
-
-    // A
-
-    Array A=createArray(20, 4);
-    int j=0;
-
-    // int n=10;
-    // setArray(A, 21, &n);
-    // n=20;
-    // setArray(A, -1, &n);
-    // n=30;
-    // setArray(A, -2, &n);
-    // int *r;
-    // for (int i=0;i<sizeArray(A); i++){
-    //     r=getArray(A,i);
-    //     printf(" %d ", *r);   
-    // }
-
-    // A
-
-
-
     char input[100];
     char *ptr, x;
     printf("Expresion a evaluar : ");
@@ -61,46 +43,100 @@ int main() {
         if(isalnum(*ptr)){
             // Imprime los numeros
             printf("%c ",*ptr);
-            setArray(A, j, &ptr);
-            ++j;
-        }
-        else if(*ptr == '('){
             stackPush(*ptr);
         }
+        else if(*ptr == '('){
+            StackPush_B(*ptr);
+        }
         else if(*ptr == ')') {
-            while((x = stackPop()) != '('){
+            while((x = StackPop_B()) != '('){
+                float x1,x2,x3;
+                char op;
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
-                setArray(A, j, &x);
-                ++j;
+/*
+                switch(x){
+                    case '+':
+                        printf("--SUMA--\n");
+                        x1 = stackPoped();
+                        x2 = stackPoped();
+                        stackPop();
+                        x3 = x1+x2;
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
+                        stackPush(x3);
+                        system("pause");
+                        break;
+                    case '-':
+                        printf("--RESTA--\n");
+                        x1 = stackPoped();
+
+                        x2 = stackPoped();
+                        stackPop();
+                        x3 = x1-x2;
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
+                        stackPush(x3);
+                        system("pause");
+                        break;
+                    case '*':
+                        printf("--MULTI--\n");
+                        x1 = stackPoped();
+
+                        x2 = stackPoped();
+                        stackPop();
+                        x3 = x1*x2;
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
+                        stackPush(x3);
+                        system("pause");
+                        break;
+                    case '/':
+                        printf("--DIV--\n");
+                        x1 = stackPoped();
+
+                        x2 = stackPoped();
+                        stackPop();
+                        x3 = x2/x1;
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
+                        stackPush(x3);
+                        system("pause");
+                        break;
+                    default: printf("Awas we Awas\n");
+                }
+
+                printf("\nOperador: %c\n", x);*/
             }   
         }
         else {
             while(ordenJerarquico(stack[top]) >= ordenJerarquico(*ptr)){
                 // Imprime los operadores con su orden respectivo
-                char n = stackPop();
+                char n = StackPop_B();
                 printf("%c ", n);
-                setArray(A, j, &n);
-                ++j;
             }
-            stackPush(*ptr);
+            StackPush_B(*ptr);
         }
         ptr++;
     }
-    
+
+    stackPeek();
+
+    /*  Resolver expresion NOTA.
+    do {
+        int x1 = stackPop();
+        int x2 = stackPop();
+        char op = queue_poped();
+        queue_size();
+        queue_delete();
+        printf("Op: %c\n", op);
+        printf("x1: %d\n", x1);
+        printf("x2: %d\n", x2);
+    } while (queue_check()!=false);
+    queue_size();
+
+    /*----------------------*/
+
     while(top != -1) {
         // Imprime lo que esta fuera de los paréntesis
-        char n = stackPop();
+        char n = StackPop_B();
         printf("%c ",n);
-        setArray(A, j, &n);
-        ++j;
 
     }
-
-    printf("Array\n");
-    int *r;
-    for (int i=0;i<sizeArray(A); i++){
-        r=getArray(A,i);
-        printf(" %d ", *r);
-    }return 0;
 }

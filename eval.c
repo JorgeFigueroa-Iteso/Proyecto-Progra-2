@@ -14,12 +14,11 @@ struct Node_Stack{
 
 struct Node_Stack *head;
 
-void stackPush(char input){
-    char val;
+void stackPush(float input){
     struct Node_Stack *ptr = (struct Node_Stack*)malloc(sizeof(struct Node_Stack));
+    float val = input;
     // printf("Valor a almacenar en el stack: ");
     // scanf("%d", &val);
-    val = input;
 
     if (head == NULL){
         ptr->val = val;
@@ -33,28 +32,49 @@ void stackPush(char input){
     // system("timeout /t 3");
 }
 
-int stackPop(){
-    int item;
+void stackPop(){
+    float item;
     struct Node_Stack *ptr;
     if (head!=NULL) {
         item = head->val;
         ptr = head;
         head = head->next;
         free(ptr);
-        printf("%c fue liberado del stack\n", item);
+        float ia = item - '0';
+        printf("\n%.1f fue liberado del stack\n", ia);
         // system("timeout /t 3");
-        return item;
+        printf("Numero: %d\n", ia);
+        // return ia;
     } else {
         printf("<------  No hay elementos en el Stack  ------>\n");
     }
     // system("timeout /t 3");
 }
 
+float stackPoped(){
+    float item;
+    struct Node_Stack *ptr;
+    if (head!=NULL) {
+        item = head->val;
+        ptr = head;
+        head = head->next;
+        free(ptr);
+        float ia = item - '0';
+        // printf("\n%.1f fue liberado del stack\n", ia);
+        // system("timeout /t 3");
+        // printf("Numero: %d\n", ia);
+        return ia;
+    } else {
+        // printf("<------  No hay elementos en el Stack  ------>\n");
+    }
+    // system("timeout /t 3");
+}
 
-int stackPeek(){
+
+float stackPeek(){
     if (head!=NULL){
-        int x = head->val;
-        printf("%c es el ultimo valor que tiene el Stack\n", x);
+        float x = head->val;
+        printf("\n%.1f es el ultimo valor que tiene el Stack\n", x);
         // system("timeout /t 3");
         return x;
     } else {
@@ -81,11 +101,11 @@ bool stackisEmpty(){
 
 struct Node_Queue
 {
-    int data;
+    char data;
     struct Node_Queue *link;
 }*front, *rear;
 
-void queue_insert(int input)
+void queue_insert(char input)
 {
     struct Node_Queue *temp;
 
@@ -119,14 +139,14 @@ void queue_delete()
     }
     else
     {
-        printf("<------  Elemento eliminado: %d------>\n\n", front->data);
+        printf("<------  Elemento eliminado: %c  ------>\n\n", front->data);
         front = front->link;
         free(temp);
     }
     // system("timeout /t 3");
 }
 
-int queue_pop()
+float queue_poped()
 {
     struct Node_Queue *temp;
 
@@ -138,7 +158,7 @@ int queue_pop()
     }
     else
     {
-        printf("<------  Elemento eliminado: %d------>\n\n", front->data);
+        printf("<------  Elemento eliminado: %.1f  ------>\n\n", front->data);
         return front->data;
         front = front->link;
         free(temp);
@@ -147,12 +167,16 @@ int queue_pop()
 }
 
 // check if queue is empty or not
-void queue_check()
+bool queue_check()
 {
-    if (front == NULL)
+    if (front == NULL){
         printf("\nQueue esta vacio\n");
-    else
+        return false;
+    }
+    else{
         printf("<------  Hay elementos en el queue  ------>\n\n");
+        return true;
+    }
     // system("timeout /t 3");
 }
 
@@ -164,12 +188,12 @@ void queue_first_element()
         printf("<------  Queue esta vacio  ------>\n\n");
     }
     else
-        printf("<------  Elemento frontal es: %d  ------>\n\n", front->data);
+        printf("<------  Elemento frontal es: %c  ------>\n\n", front->data);
     // system("timeout /t 3");
 }
 
 // returns number of entries and displays the elements in queue
-void queue_size()
+char queue_size()
 {
     struct Node_Queue *temp;
 
@@ -177,15 +201,17 @@ void queue_size()
     int cnt = 0;
     if (front  ==  NULL) {
         printf("<------  Queue esta vacio  ------>\n\n");
+        return 0;
     } else {
-        printf("<------ ");
+        printf("\n<------ ");
         while (temp)
         {
-            printf("| %2d ", temp->data);
+            printf("| %2c ", temp->data);
             temp = temp->link;
             cnt++;
         }
         printf(" | tamano del queue es: %d  ------>\n\n", cnt);
+        return cnt;
     }
     // system("timeout /t 3");
 }
