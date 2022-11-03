@@ -103,7 +103,7 @@ void queue_insert(int input)
         rear->link = temp;
         rear = temp;
     }
-	// system("timeout /t 3");
+    // system("timeout /t 3");
 }
 
 // delete elements from queue
@@ -120,6 +120,26 @@ void queue_delete()
     else
     {
         printf("<------  Elemento eliminado: %d------>\n\n", front->data);
+        front = front->link;
+        free(temp);
+    }
+    // system("timeout /t 3");
+}
+
+int queue_pop()
+{
+    struct Node_Queue *temp;
+
+    temp = front;
+    if (front == NULL)
+    {
+        printf("<------  Queue vacio  ------>\n\n");
+        front = rear = NULL;
+    }
+    else
+    {
+        printf("<------  Elemento eliminado: %d------>\n\n", front->data);
+        return front->data;
         front = front->link;
         free(temp);
     }

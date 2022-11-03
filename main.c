@@ -9,17 +9,94 @@
 int main(void){
 
 	char input[100];
-	int i=0;
+	int i=0,n1=0,n2=0,n3=0;
 
 	printf("Ingrese su ecuacion a evaluar: ");
 	scanf("%s", input);
 	printf("%s\n", input);
 
+
+	/** 
+	 * 
+	 * Primero, cuando encuentre un ")", tengo que comprobar el/los operadores que hayan de pormedio 
+	 * Para hacer eso, lo puedo hacer con un pop, sin embargo, tengo que agregarlo de una u otra forma a un stack, para hacer las operaciones
+	 * 
+	 * @TODO: hacer operaciones con el char
+	 * 
+	**/
+
+
 	while(i!=strlen(input)) {
-		if (input[i]=='(' || input[i] == ')') {
+		if (input[i] == '(') {
 
 			printf("Parentesis: %c\n", input[i]);
 			stackPush(input[i]);
+
+		} else if (input[i] == ')') {
+			
+			switch (stackPeek()){
+				case '+': 
+					stackPop();
+					stackPop();
+					n2 = queue_pop();
+					queue_delete();
+					n1=queue_pop();
+					n3 = n1+n2;
+					queue_insert(n3);
+					queue_delete();
+					printf("<-----	SUMA	----->\n");
+					queue_size();
+					printf("<-----	SUMA	----->\n");
+
+					break;
+				case '-': 
+					printf("<-----	RESTA	----->\n");
+					stackPop();					
+					stackPop();
+					n2 = queue_pop();
+					queue_delete();
+					n1=queue_pop();
+					n3 = n1-n2;
+					queue_insert(n3);
+					queue_delete();
+					printf("<-----	RESTA	----->\n");
+					queue_size();
+					printf("<-----	RESTA	----->\n");
+
+					break;
+
+				case '*': 
+					printf("<-----	MULTI	----->\n");
+					stackPop();					
+					stackPop();
+					n2 = queue_pop();
+					queue_delete();
+					n1=queue_pop();
+					n3 = n1*n2;
+					queue_insert(n3);
+					queue_delete();
+					printf("<-----	MULTI	----->\n");
+					queue_size();
+					printf("<-----	MULTI	----->\n");
+
+					break;
+				case '/':
+					printf("<-----	DIV	----->\n");
+					stackPop();					
+					stackPop();
+					n2 = queue_pop();
+					queue_delete();
+					n1=queue_pop();
+					n3 = n1/n2;
+					queue_insert(n3);
+					queue_delete();
+					printf("<-----	DIV	----->\n");
+					queue_size();
+					printf("<-----	DIV	----->\n");
+
+					break;
+				default: ("!!	 No operator	!!");
+			}
 
 		} else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
 
@@ -42,7 +119,11 @@ int main(void){
 	printf("Primer elemento:\n");
 	queue_first_element();
 
+
 	printf("Elemento del stack\n");
+
+	stackPeek();
+
 	do
 	{
 		if (stackisEmpty()==true){
@@ -52,6 +133,7 @@ int main(void){
 		}
 		
 	} while (1);
+
 
 /*
 	// QUEUE FUNCIONAL
@@ -72,17 +154,19 @@ int main(void){
 		case 1: 
 		    printf("\n<------  Queue creado  ------>\n\n");	break;
 		case 2:    
-		    queue_insert(input);							break;
+		    queue_insert(choice);							break;
 		case 3: 
-		    queue_delete();							break;
+		    queue_delete();	
+		    
+		    break;
 		case 4: 
-		    queue_check();							break;
+		    queue_check();									break;
 		case 5: 
-		    queue_first_element();					break;
+		    queue_first_element();							break;
 		case 6: 
-		    queue_size();							break;
+		    queue_size();									break;
 		default: 
-		    printf("Opcion incorrecta\n");			break;
+		    printf("Opcion incorrecta\n");					break;
 		}
 	} while (1);
 */
