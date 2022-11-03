@@ -55,7 +55,7 @@ int main() {
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
 
-/*
+
                 switch(x){
                     case '+':
                         printf("--SUMA--\n");
@@ -103,7 +103,7 @@ int main() {
                     default: printf("Awas we Awas\n");
                 }
 
-                printf("\nOperador: %c\n", x);*/
+                printf("\nOperador: %c\n", x);
             }   
         }
         else {

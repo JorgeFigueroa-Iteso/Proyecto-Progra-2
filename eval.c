@@ -16,7 +16,7 @@ struct Node_Stack *head;
 
 void stackPush(float input){
     struct Node_Stack *ptr = (struct Node_Stack*)malloc(sizeof(struct Node_Stack));
-    float val = input;
+    Data val = input;
     // printf("Valor a almacenar en el stack: ");
     // scanf("%d", &val);
 
