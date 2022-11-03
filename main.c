@@ -6,6 +6,11 @@
 #include <stddef.h>
 #include <string.h>
 
+struct Node_Stack{
+	char val;
+	struct Node_Stack *next;
+};
+
 int main(void){
 
 	char input[100];
@@ -90,7 +95,6 @@ int main(void){
 
 /*
 	// STACK FUNCIONAL
-
 	int choice=0;
 	do {
 		system("cls");
@@ -104,7 +108,6 @@ int main(void){
 			case 2: stackPop();		break;
 			case 3: stackPeek();	break;
 			case 4: stackisEmpty(); break;
-
 		}
 	} while (1);
 */	

@@ -26,6 +26,7 @@ bool stackisEmpty();
 
 void queue_insert(int);
 void queue_delete();
+int queue_pop();
 void queue_check();
 void queue_first_element();
 void queue_size();
