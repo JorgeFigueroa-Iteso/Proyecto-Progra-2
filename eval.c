@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <string.h>
+
+//puto el que lo lea 
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
 /*		<------  STACK  ------>		*/
