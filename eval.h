@@ -16,7 +16,7 @@ typedef struct strStack *Stack;
 
 /*		<------  STACK  ------>		*/
 
-void stackPush();
+void stackPush(char);
 int stackPop();
 int stackPeek();
 bool stackisEmpty();
@@ -24,7 +24,7 @@ bool stackisEmpty();
 
 /*		<------  QUEUE  ------>		*/
 
-void queue_insert();
+void queue_insert(int);
 void queue_delete();
 void queue_check();
 void queue_first_element();

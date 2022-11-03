@@ -8,17 +8,18 @@
 /*		<------  STACK  ------>		*/
 
 struct Node_Stack{
-	int val;
+	char val;
 	struct Node_Stack *next;
 };
 
 struct Node_Stack *head;
 
-void stackPush(){
-	int val;
+void stackPush(char input){
+	char val;
 	struct Node_Stack *ptr = (struct Node_Stack*)malloc(sizeof(struct Node_Stack));
-	printf("Valor a almacenar en el stack: ");
-	scanf("%d", &val);
+	// printf("Valor a almacenar en el stack: ");
+	// scanf("%d", &val);
+    val = input;
 
 	if (head == NULL){
 		ptr->val = val;
@@ -40,7 +41,7 @@ int stackPop(){
 		ptr = head;
 		head = head->next;
 		free(ptr);
-		printf("%d fue liberado del stack\n", item);
+		printf("%c fue liberado del stack\n", item);
 		// system("timeout /t 3");
 		return item;
 	} else {
@@ -53,7 +54,7 @@ int stackPop(){
 int stackPeek(){
 	if (head!=NULL){
 	    int x = head->val;
-	    printf("%d es el ultimo valor que tiene el Stack\n", x);
+	    printf("%c es el ultimo valor que tiene el Stack\n", x);
 		// system("timeout /t 3");
 	    return x;
 	} else {
@@ -84,13 +85,14 @@ struct Node_Queue
     struct Node_Queue *link;
 }*front, *rear;
 
-void queue_insert()
+void queue_insert(int input)
 {
     struct Node_Queue *temp;
 
     temp = (struct Node_Queue*)malloc(sizeof(struct Node_Queue));
-    printf("Inserte el valor: \n");
-    scanf("%d", &temp->data);
+    // printf("Inserte el valor: \n");
+    // scanf("%d", &temp->data);
+    temp->data = input;
     temp->link = NULL;
     if (rear  ==  NULL)
     {

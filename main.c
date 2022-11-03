@@ -8,8 +8,52 @@
 
 int main(void){
 
+	char input[100];
+	int i=0;
 
+	printf("Ingrese su ecuacion a evaluar: ");
+	scanf("%s", input);
+	printf("%s\n", input);
 
+	while(i!=strlen(input)) {
+		if (input[i]=='(' || input[i] == ')') {
+
+			printf("Parentesis: %c\n", input[i]);
+			stackPush(input[i]);
+
+		} else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
+
+			printf("Operador: %c\n", input[i]);
+			stackPush(input[i]);
+
+		} else {
+			int ia = input[i] - '0';
+			printf("Numero: %d\n", ia);
+
+			queue_insert(ia);
+
+		}
+		i++;
+	}
+
+	printf("\nElementos del queue:\n");
+	queue_size();
+
+	printf("Primer elemento:\n");
+	queue_first_element();
+
+	printf("Elemento del stack\n");
+	do
+	{
+		if (stackisEmpty()==true){
+			exit(0);
+		} else {
+			stackPop();
+		}
+		
+	} while (1);
+
+/*
 	// QUEUE FUNCIONAL
 	int choice;
 	do
@@ -28,7 +72,7 @@ int main(void){
 		case 1: 
 		    printf("\n<------  Queue creado  ------>\n\n");	break;
 		case 2:    
-		    queue_insert();							break;
+		    queue_insert(input);							break;
 		case 3: 
 		    queue_delete();							break;
 		case 4: 
@@ -41,7 +85,7 @@ int main(void){
 		    printf("Opcion incorrecta\n");			break;
 		}
 	} while (1);
-
+*/
 
 
 /*
