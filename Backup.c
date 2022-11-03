@@ -39,18 +39,23 @@ int main() {
         else if(*ptr == '(')
             stackPush(*ptr);
         else if(*ptr == ')') {
-            while((x = stackPop()) != '(')
+            while((x = stackPop()) != '('){
+                // Imprime el contenido de los paréntesis
                 printf("%c ", x);
+            }
         }
         else {
-            while(ordenJerarquico(stack[top]) >= ordenJerarquico(*ptr))
+            while(ordenJerarquico(stack[top]) >= ordenJerarquico(*ptr)){
+                // Imprime los operadores con su orden respectivo
                 printf("%c ",stackPop());
+            }
             stackPush(*ptr);
         }
         ptr++;
     }
     
     while(top != -1) {
+        // Imprime lo que esta fuera de los paréntesis
         printf("%c ",stackPop());
     }return 0;
 }
