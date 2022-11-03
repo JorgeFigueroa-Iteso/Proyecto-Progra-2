@@ -7,6 +7,7 @@
 
 //puto el que lo lea 
 //puto el que lo lea x2
+//puto el que lo lea x3
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
 /*		<------  STACK  ------>		*/
