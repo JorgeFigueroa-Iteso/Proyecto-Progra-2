@@ -1,115 +1,132 @@
-/*Branch - joaquin*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<string.h>
+#define MAX_ELEMENTS 100
+#define ROGUE_VALUE -99999
 
-#include "eval.h"
+typedef int stackdata_t;
+typedef struct{
+  int top;
+  stackdata_t SA[MAX_ELEMENTS];
+} arrstack_t;
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
+arrstack_t* init_stack();
+stackdata_t evaluate_expression(const char const*, size_t);
+stackdata_t pop(arrstack_t*);
+bool push(arrstack_t*, stackdata_t);
+bool empty(arrstack_t*);
+bool full(arrstack_t*);
+void printstack(arrstack_t*);
+int gettoken(const char const*, int);
 
-int main(void){
+int main(){
+  char buf[20];
+  char expression[20];
+  char *prompt = "Enter a postfix expression: ";
+  stackdata_t d;
+  size_t strlength;
 
-	char input[100];
-	int i=0;
+  printf("%s", prompt);
+  fgets(buf, sizeof buf, stdin);
+  sscanf(buf, "%[a-zA-Z0-9 +-*/]s", expression);
 
-	printf("Ingrese su ecuacion a evaluar: ");
-	scanf("%s", input);
-	printf("%s\n", input);
+  strlength = strlen(expression);
+  d = evaluate_expression(expression, strlength);
+  printf("Expression value: %d\n", d);
 
-	while(i!=strlen(input)) {
-		if (input[i]=='(' || input[i] == ')') {
+  return 0;
+}
 
-			printf("Parentesis: %c\n", input[i]);
-			stackPush(input[i]);
+arrstack_t*  init_stack(){
+  arrstack_t *s = malloc(sizeof *s);
+  s->top = -1;
+  return s;
+}
 
-		} else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
+stackdata_t evaluate_expression(const char const *expression, size_t strlength){
+  printf("The expression: %s\n", expression);
+  int startpos = 0;
+  int endpos = 0;
+  char token[10];
+  arrstack_t *stack = init_stack();
+  stackdata_t n, m;
+  while(endpos < strlength){
+    endpos = gettoken(expression, startpos);
+    strncpy(token, expression + startpos, endpos - startpos);
+    //printf("Token: %s\n", token);
 
-			printf("Operador: %c\n", input[i]);
-			stackPush(input[i]);
+    // Push digits, pop for operations.
+    if(sscanf(token, "%d", &n)){
+      push(stack, n);
+    }
+    else{
+      m = pop(stack);
+      n = pop(stack);
+      if(strncmp(token, "+", 1) == 0){
+        push(stack, n+m);
+      }
+      else if(strncmp(token, "-", 1) == 0){
+        push(stack, n-m);
+      }
+      else if(strncmp(token, "/", 1) == 0){
+        push(stack, n/m);
+      }
+      else {
+        push(stack, n*m);
+      }
+    }
+    startpos = endpos+1;
+    memset(token, '\0', sizeof token);
+  }
+  n = pop(stack);
+  return n;
+}
 
-		} else {
-			int ia = input[i] - '0';
-			printf("Numero: %d\n", ia);
+int gettoken(const char const *exp_str, int i){
+  char c = exp_str[i];
+  while (c != ' ' && c != '\0'){
+    i++;
+    c = exp_str[i];
+  }
+  return i;
+}
 
-			queue_insert(ia);
+stackdata_t pop(arrstack_t *stack){
+  stackdata_t d;
+  if(empty(stack)){
+    d = ROGUE_VALUE;
+  }
+  else{
+    d = stack->SA[stack->top];
+    stack->top--;
+  }
+  return d;
+}
 
-		}
-		i++;
-	}
+bool push(arrstack_t *stack, stackdata_t data){
+  if(full(stack)){
+    return false;
+  }
+  else{
+    stack->top++;
+    stack->SA[stack->top] = data;
+    return true;
+  }
+}
 
-	printf("\nElementos del queue:\n");
-	queue_size();
+bool empty(arrstack_t *stack){
+  return stack->top == -1;
+}
 
-	printf("Primer elemento:\n");
-	queue_first_element();
+bool full(arrstack_t *stack){
+  return stack->top == (MAX_ELEMENTS-1);
+}
 
-	printf("Elemento del stack\n");
-	do
-	{
-		if (stackisEmpty()==true){
-			exit(0);
-		} else {
-			stackPop();
-		}
-		
-	} while (1);
-
-/*
-
-	// QUEUE FUNCIONAL
-	int choice;
-	do
-	{
-		printf("Seleccione opcion \n");
-		printf("1 : Crear Queue \n2 : Insertar elemento\n");
-		printf("3 : Dequeue un elemento \n4 : Verificar si esta vacio\n");
-		printf("5 : Obtener el primer elemento del Queue\n");
-		printf("6 : Ver los elementos del Queue\n");
-		printf("0 : Exit\n");
-		scanf("%d", &choice);
-		switch (choice)    // menu driven program
-		{
-		case 0: 
-		    exit(0);
-		case 1: 
-		    printf("\n<------  Queue creado  ------>\n\n");	break;
-		case 2:    
-		    queue_insert(input);							break;
-		case 3: 
-		    queue_delete();							break;
-		case 4: 
-		    queue_check();							break;
-		case 5: 
-		    queue_first_element();					break;
-		case 6: 
-		    queue_size();							break;
-		default: 
-		    printf("Opcion incorrecta\n");			break;
-		}
-	}while (1);
-
-
-
-/*
-	// STACK FUNCIONAL
-
-	int choice=0;
-	do {
-		system("cls");
-		printf("Escoje una opcion:\n");
-		// printf("\n0: Exit - 2: Pop - 4: Verificar si el stack esta vacio\n1: Push - 3: Peek");
-		printf("1.- Push\n2.- Pop\n3.- Peek\n4.- Check\n0.- Exit\nOpcion: ");
-		scanf("%d",&choice);
-		switch(choice){
-			case 0: exit(0);
-			case 1: stackPush(); 	break;
-			case 2: stackPop();		break;
-			case 3: stackPeek();	break;
-			case 4: stackisEmpty(); break;
-
-		}
-	} while (1);
-
-	return 0;
-*/
+void printstack(arrstack_t *stack){
+  stackdata_t d;
+  while(!empty(stack)){
+    d = pop(stack);
+    printf("%d\n", d);
+  }
 }

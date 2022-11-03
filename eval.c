@@ -27,12 +27,10 @@ void stackPush(char input){
 		ptr->val = val;
 		ptr->next= NULL;
 		head = ptr;
-        parentesis(ptr);
 	} else{
 		ptr->val = val;
 		ptr->next= head;
 		head=ptr;
-        parentesis(ptr);
     }
 	// system("timeout /t 3");
 }
@@ -191,14 +189,13 @@ void queue_size()
 }
 
 
-bool parentesis(){
+bool parentesis(opdr pss){
     Stack st=malloc(sizeof(struct Node_Stack));
-    int i=0
-    opdr pss;
+    int i=0;
 
     while(pss[i]!='\0'){
         if(pss[i]=='('){
-            stackPush(st, &pss[i]);
+            stackPush(st);
             break;
         }
         else if (pss[i]==')'){

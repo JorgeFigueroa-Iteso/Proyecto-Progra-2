@@ -34,7 +34,7 @@ void queue_size();
 
 /* <--- checks --->*/
 
-bool parentesis();
+bool parentesis(opdr);
 bool operador();
 
 #endif
