@@ -7,7 +7,7 @@ typedef enum {false, true} bool;
 
 /*		Dato Genético		*/
 
-typedef void * Data;
+typedef void * Type;
 
 /*		Dato Genético		*/
 
@@ -31,5 +31,10 @@ void queue_delete();
 void queue_check();
 void queue_first_element();
 void queue_size();
+
+/* <--- checks --->*/
+
+bool parentesis();
+bool operador();
 
 #endif

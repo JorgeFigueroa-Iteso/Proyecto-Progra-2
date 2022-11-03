@@ -8,7 +8,7 @@
 #include <string.h>
 
 int main(void){
-/*
+
 	// QUEUE FUNCIONAL
 	int choice;
 	do
@@ -39,11 +39,11 @@ int main(void){
 		default: 
 		    printf("Opcion incorrecta\n");			break;
 		}
-	} while (1);
-*/
+	}while (1);
 
 
 
+/*
 	// STACK FUNCIONAL
 
 	int choice=0;
@@ -55,7 +55,7 @@ int main(void){
 		scanf("%d",&choice);
 		switch(choice){
 			case 0: exit(0);
-			case 1: stackPush();	break;
+			case 1: stackPush(); 	break;
 			case 2: stackPop();		break;
 			case 3: stackPeek();	break;
 			case 4: stackisEmpty(); break;
@@ -64,5 +64,5 @@ int main(void){
 	} while (1);
 
 	return 0;
+*/
 }
-

@@ -25,10 +25,12 @@ void stackPush(){
 		ptr->val = val;
 		ptr->next= NULL;
 		head = ptr;
+        parentesis(ptr);
 	} else{
 		ptr->val = val;
 		ptr->next= head;
 		head=ptr;
+        parentesis(ptr);
     }
 }
 
@@ -80,7 +82,7 @@ bool stackisEmpty(){
 
 struct Node_Queue
 {
-    int data;
+    char *data;
     struct Node_Queue *link;
 }*front, *rear;
 
@@ -90,7 +92,7 @@ void queue_insert()
  
     temp = (struct Node_Queue*)malloc(sizeof(struct Node_Queue));
     printf("Inserte el valor: \n");
-    scanf("%d", &temp->data);
+    scanf("%s", &temp->data);
     temp->link = NULL;
     if (rear  ==  NULL)
     {
@@ -117,7 +119,7 @@ void queue_delete()
     }
     else
     {    
-        printf("Elemento eliminado: %d\n", front->data);
+        printf("Elemento eliminado: %s\n", front->data);
         front = front->link;
         free(temp);
     }
@@ -142,7 +144,7 @@ void queue_first_element()
         printf("**************** Queue esta vacio ****************\n");
     }
     else
-        printf("**************** El elemento frontall es: %d ***********\n", front->data);        
+        printf("**************** El elemento frontall es: %s ***********\n", front->data);        
     system("timeout /t 3");
 }
  
@@ -159,7 +161,7 @@ void queue_size()
     }
     while (temp)
     {
-        printf("%d  ", temp->data);
+        printf("%s  ", temp->data);
         temp = temp->link;
         cnt++;
     }
@@ -169,23 +171,24 @@ void queue_size()
 
 
 bool parentesis(){
-    Stack st=malloc(sizeof(struct Node_Stack));
+    Queue st=malloc(sizeof(struct Node_Queue));
     int i=0;
     opdr pss;
 
     while(pss[i]!='\0'){
         if(pss[i]=='('){
             stackPush(st, &pss[i]);
+            break;
         }
         else if (pss[i]==')'){
-            if (stackPop(pss[i])==NULL){
+            if (stackPop(st)==NULL){
                 printf("parentecis incompleto\nincorrecto.\n");
-                return false;
+                break;
             }
         }
         i++;
     }
-    if (stackisEmpty(st)){
+    if (!=queue_check(st)){
         return true;
     }
     else{
@@ -195,8 +198,9 @@ bool parentesis(){
 }
 
 
-bool operador(opdr op){
+bool operador(){
     int i=0;
+    opdr op;
 
     while(op[i]!='\0'){
         if(op[i]==42 || op[i]==43 || op[i]==45 || op[i]==47){
