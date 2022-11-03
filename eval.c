@@ -6,6 +6,7 @@
 #include <string.h>
 
 //puto el que lo lea 
+//puto el que lo lea x2
 /*	<--- Comienzo de operaciones desde el .h --->	*/
 
 /*		<------  STACK  ------>		*/
