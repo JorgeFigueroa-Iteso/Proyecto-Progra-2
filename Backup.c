@@ -54,7 +54,7 @@ int main() {
 
             double* x10 = (double *)stack_top(stk);
             // printf("%f\n", *x10);
-            system("pause");
+            // system("pause");
         }
         else if(*ptr == '('){
             StackPush_B(*ptr);
@@ -63,7 +63,7 @@ int main() {
             while((x = StackPop_B()) != '('){
                 char op;
                 // Imprime el contenido de los paréntesis
-                printf("%c Dentro de los PARENTESIS", x);
+                printf("%c ", x);
 
                 double *pop1 = NULL;
                 double *pop2 = NULL;
@@ -81,7 +81,7 @@ int main() {
                         // printf("%f\n", *pop1);
                         // printf("%f\n", *pop2);
 
-                        res = (*pop1)+(*pop2);
+                        res = ((*pop1)+(*pop2));
                         printf("\n%f\n", res);
                         stack_push(stk, &res);
 

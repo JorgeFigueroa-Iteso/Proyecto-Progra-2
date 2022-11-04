@@ -15,11 +15,11 @@ int main(){
 
 
 	int entero = *ptr-'0';
-	printf("%d\n", entero);
+	// printf("%d\n", entero);
 
 	double n = entero;
 	
-	printf("%f\n", n);
+	// printf("%f\n", n);
 
 	for (int i = 0; i < 5; ++i)
 	{
