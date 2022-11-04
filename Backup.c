@@ -47,7 +47,8 @@ int main() {
             // Imprime los numeros
             printf("%c ",*ptr);
 
-            n = strtod(ptr, NULL);
+            n = atoi(ptr);
+            // n = strtod(ptr, NULL);
             printf("double: %lf\n", n);
             stack_push(stk, &n);
             // stack_pop(stk);
