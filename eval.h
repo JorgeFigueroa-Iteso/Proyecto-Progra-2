@@ -29,15 +29,3 @@ void stack_destroy(Stack);
 void print_stack(Stack);
 
 /*		<------  STACK  ------>		*/
-
-
-/*		<------  QUEUE  ------>		*/
-
-void queue_insert(char);
-void queue_delete();
-float queue_poped();
-bool queue_check();
-void queue_first_element();
-char queue_size();
-
-#endif
