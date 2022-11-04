@@ -32,12 +32,12 @@ int ordenJerarquico(char x) {
 
 int main() {
     char input[100];
-    char *ptr, x;
+    char *ptr, x, numr;
     printf("Expresion a evaluar : ");
     scanf("%s",input);
     printf("\n");
     ptr = input;
-
+    int pos = 0;
     Stack stk=stack_create(sizeof(double));
 
     while(*ptr != '\0') {
@@ -45,77 +45,65 @@ int main() {
 
         if(isalnum(*ptr)){
             // Imprime los numeros
-            printf("%c ",*ptr);
+            printf("[%c] ",*ptr);
 
-            n = atoi(ptr);
-            // n = strtod(ptr, NULL);
-            printf("double: %lf\n", n);
-            stack_push(stk, &n);
+            int entero = *ptr-'0';
+            double numd = entero;
+
+            // printf("double: %lf\n", numd);
+            stack_push(stk, &numd);
             // stack_pop(stk);
             double* x10 = (double *)stack_top(stk);
-            printf("%lf\n", x10);
-            system("pause");
-
-            // stackPush(*ptr);
+            // printf("%f\n", *x10);
+            // system("pause");
         }
         else if(*ptr == '('){
             StackPush_B(*ptr);
         }
         else if(*ptr == ')') {
             while((x = StackPop_B()) != '('){
-                float x1,x2,x3;
                 char op;
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
 
-                double *pop1 = (double *)stack_pop(stk);
-                double *pop2 = (double *)stack_pop(stk);
-                Data x10 = stack_top(stk);
-
-                printf(" ----------- %lf ---- %lf ---- %lf\n", &pop1, &pop2, x10);
+                double *pop1 = NULL;
+                double *pop2 = NULL;
+                double res = 0;
 
                 switch(x){
                     case '+':
                         printf("\n--SUMA--\n");
-                        // x1 = stackPoped();
-                        // x2 = stackPoped();
-                        // stackPop();
-                        x3 = x1+x2;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
-                        // stackPush(x3);
+
+                        // double *pop1 = (double *)stack_pop(stk);
+                        // double *pop2 = (double *)stack_pop(stk);
+
+                        pop1=stack_pop(stk);
+                        pop2=stack_pop(stk);
+
+                        printf("%f\n", *pop1);
+                        printf("%f\n", *pop2);
+
+                        res = *pop1+*pop2;
+                        printf("%f\n", res);
+                        stack_push(stk, &res);
+
+                        printf("%f\n", stack_top(stk));
+
                         system("pause");
                         break;
                     case '-':
                         printf("\n--RESTA--\n");
-                        // x1 = stackPoped();
 
-                        // x2 = stackPoped();
-                        // stackPop();
-                        x3 = x1-x2;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
-                        // stackPush(x3);
                         system("pause");
                         break;
                     case '*':
                         printf("\n--MULTI--\n");
-                        // x1 = stackPoped();
 
-                        // x2 = stackPoped();
-                        // stackPop();
-                        x3 = x1*x2;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
-                        // stackPush(x3);
                         system("pause");
                         break;
                     case '/':
                         printf("\n--DIV--\n");
-                        // x1 = stackPoped();
 
-                        // x2 = stackPoped();
-                        // stackPop();
-                        x3 = x2/x1;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
-                        // stackPush(x3);
                         system("pause");
                         break;
                     default: printf("Awas we Awas\n");
@@ -131,13 +119,62 @@ int main() {
                 printf("%c ", n);
             }
             StackPush_B(*ptr);
-        }
-        ptr++;
+            if (pos<1) {
+                /* Espera a que sea mayor a 0 */
+                ++pos;
+            } else {
+                double *pop1 = NULL;
+                double *pop2 = NULL;
+                double res = 0;
+
+                switch(*ptr){
+                    case '+':
+                        printf("\n--SUMA--\n");
+
+                        // double *pop1 = (double *)stack_pop(stk);
+                        // double *pop2 = (double *)stack_pop(stk);
+
+                        pop1=stack_pop(stk);
+                        pop2=stack_pop(stk);
+
+                        printf("%f\n", *pop1);
+                        printf("%f\n", *pop2);
+
+                        res = *pop1+*pop2;
+                        printf("%f\n", res);
+                        stack_push(stk, &res);
+
+                        printf("%f\n", stack_top(stk));
+
+                        system("pause");
+                        break;
+                    case '-':
+                        printf("\n--RESTA--\n");
+
+                        system("pause");
+                        break;
+                    case '*':
+                        printf("\n--MULTI--\n");
+
+                        system("pause");
+                        break;
+                    case '/':
+                        printf("\n--DIV--\n");
+
+                        system("pause");
+                        break;
+                    default: printf("Awas we Awas\n");
+                }
+
+                printf("\nOperador: %c\n", x);
+            }
+
+        } ptr++;
     }
 
-    // stackPeek();
+/*    // stackPeek();
 
-    /*  Resolver expresion NOTA.
+      Resolver expresion NOTA.
     do {
         int x1 = stackPop();
         int x2 = stackPop();
@@ -148,9 +185,9 @@ int main() {
         printf("x1: %d\n", x1);
         printf("x2: %d\n", x2);
     } while (queue_check()!=false);
-    queue_size();
+    queue_size();*/
 
-    /*----------------------*/
+    // ----------------------
 
     while(top != -1) {
         // Imprime lo que esta fuera de los paréntesis

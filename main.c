@@ -4,38 +4,36 @@
 #include <stdlib.h>
 #include <string.h>
 
-int * newInt(int valor){
-	int *new=malloc(sizeof(int));
-	*new=valor;
-	return new;
-}
-
 int main(){
 
-	Stack s1=stack_create(sizeof(int));
-	printf("s1: %p\n", s1);
-	printf("Size s1: %d\n", stack_size(s1));
-	int n=0;
-	stack_push(s1, &n);
+	Stack s1 = stack_create(sizeof(double));
 
-	n=10;
-	stack_push(s1, &n);
-	n=40;
-	stack_push(s1, &n);
-	printf("Size s1: %d\n", stack_size(s1));
+	char input[100], *ptr;
+	input[0] = '1';
+	ptr = input;
+	char num1 = *ptr;
 
-	int * dato;
-	dato=stack_top(s1);
-	printf("Top s1: %d\n", *dato);
 
-	while(!stack_isEmpty(s1)){
-		dato=stack_pop(s1);
-		printf("Pop s1: %d\n", *dato);
+	int entero = *ptr-'0';
+	printf("%d\n", entero);
+
+	double n = entero;
+	
+	printf("%f\n", n);
+
+	for (int i = 0; i < 5; ++i)
+	{
+		stack_push(s1, &n);
+		n=n+1;
 	}
 
-	// dato=stack_pop(s1);
+	double *num = NULL;
+	for (int j = 0; j < 5; ++j)
+	{
+		num=stack_pop(s1);
+		printf("%f\n", *num);
+	}
 
-	printf("Top s1: %d\n", *dato);
-	// system("pause");
+
 	return 0;
 }
