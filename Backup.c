@@ -1,4 +1,3 @@
-#include "Array.h"
 #include "eval.h"
 
 #include <stdlib.h>
@@ -38,12 +37,25 @@ int main() {
     scanf("%s",input);
     printf("\n");
     ptr = input;
-    
+
+    Stack stk=stack_create(sizeof(double));
+
     while(*ptr != '\0') {
+        double n,x10;
+
         if(isalnum(*ptr)){
             // Imprime los numeros
             printf("%c ",*ptr);
-            stackPush(*ptr);
+
+            n = strtod(ptr, NULL);
+            printf("double: %lf\n", n);
+            stack_push(stk, &n);
+            // stack_pop(stk);
+            double* x10 = (double *)stack_top(stk);
+            printf("%lf\n", x10);
+            system("pause");
+
+            // stackPush(*ptr);
         }
         else if(*ptr == '('){
             StackPush_B(*ptr);
@@ -55,49 +67,54 @@ int main() {
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
 
+                double *pop1 = (double *)stack_pop(stk);
+                double *pop2 = (double *)stack_pop(stk);
+                Data x10 = stack_top(stk);
+
+                printf(" ----------- %lf ---- %lf ---- %lf\n", &pop1, &pop2, x10);
 
                 switch(x){
                     case '+':
-                        printf("--SUMA--\n");
-                        x1 = stackPoped();
-                        x2 = stackPoped();
-                        stackPop();
+                        printf("\n--SUMA--\n");
+                        // x1 = stackPoped();
+                        // x2 = stackPoped();
+                        // stackPop();
                         x3 = x1+x2;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
-                        stackPush(x3);
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
+                        // stackPush(x3);
                         system("pause");
                         break;
                     case '-':
-                        printf("--RESTA--\n");
-                        x1 = stackPoped();
+                        printf("\n--RESTA--\n");
+                        // x1 = stackPoped();
 
-                        x2 = stackPoped();
-                        stackPop();
+                        // x2 = stackPoped();
+                        // stackPop();
                         x3 = x1-x2;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
-                        stackPush(x3);
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
+                        // stackPush(x3);
                         system("pause");
                         break;
                     case '*':
-                        printf("--MULTI--\n");
-                        x1 = stackPoped();
+                        printf("\n--MULTI--\n");
+                        // x1 = stackPoped();
 
-                        x2 = stackPoped();
-                        stackPop();
+                        // x2 = stackPoped();
+                        // stackPop();
                         x3 = x1*x2;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
-                        stackPush(x3);
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
+                        // stackPush(x3);
                         system("pause");
                         break;
                     case '/':
-                        printf("--DIV--\n");
-                        x1 = stackPoped();
+                        printf("\n--DIV--\n");
+                        // x1 = stackPoped();
 
-                        x2 = stackPoped();
-                        stackPop();
+                        // x2 = stackPoped();
+                        // stackPop();
                         x3 = x2/x1;
-                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f", x1,x2,x3);
-                        stackPush(x3);
+                        printf("x1: %.1f\nx2: %.1f\nx3: %.1f\n", x1,x2,x3);
+                        // stackPush(x3);
                         system("pause");
                         break;
                     default: printf("Awas we Awas\n");
@@ -117,7 +134,7 @@ int main() {
         ptr++;
     }
 
-    stackPeek();
+    // stackPeek();
 
     /*  Resolver expresion NOTA.
     do {
