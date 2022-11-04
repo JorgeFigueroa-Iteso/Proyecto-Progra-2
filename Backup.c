@@ -45,7 +45,7 @@ int main() {
         if(isalnum(*ptr)){
             // Imprime los numeros
             printf("%c ",*ptr);
-            setArray(A, j, &ptr);
+            stack_push(ptr, input);
             ++j;
         }
         else if(*ptr == '('){
@@ -55,7 +55,7 @@ int main() {
             while((x = stack_pop()) != '('){
                 // Imprime el contenido de los paréntesis
                 printf("%c ", x);
-                setArray(A, j, &x);
+                stack_push(ptr, x);
                 ++j;
             }   
         }
@@ -64,7 +64,7 @@ int main() {
                 // Imprime los operadores con su orden respectivo
                 char n = stack_pop();
                 printf("%c ", n);
-                setArray(A, j, &n);
+                stack_push(ptr ,n);
                 ++j;
             }
             stack_push(*ptr);
