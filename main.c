@@ -13,12 +13,12 @@ int main(){
 	ptr = input;
 	char num1 = *ptr;
 
-
+	// double n = 10;
 	int entero = *ptr-'0';
-	// printf("%d\n", entero);
-
-	double n = entero;
-	
+	printf("%d\n", entero);
+	double n = atoi(ptr);
+	// double n = entero;
+	// double n = strtod(&num1, NULL);
 	// printf("%f\n", n);
 
 	for (int i = 0; i < 5; ++i)
