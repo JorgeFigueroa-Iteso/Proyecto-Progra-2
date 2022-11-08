@@ -29,3 +29,5 @@ void stack_destroy(Stack);
 void print_stack(Stack);
 
 /*		<------  STACK  ------>		*/
+
+#endif
