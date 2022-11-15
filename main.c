@@ -7,7 +7,7 @@
 #include <ctype.h>
 
 char scanOrdenJerarquico[100];
-int top = -1;
+int orden = -1;
 
 int ordenJerarquico(char x) {
     if(x == '(')
@@ -32,6 +32,7 @@ int main() {
     ptr = input;
     int pos = 0;
 
+    /* <--- REPASO A CADENA ---> */
 
     while(*ptr != '\0') {
         double n,x10;
@@ -48,6 +49,7 @@ int main() {
             double* x10 = (double *)stack_top(stk);
         }
         else if(*ptr == '('){
+            /* <--- Si se abre paréntesis lo agrega al stack ---> */
             stack_push(stk1, ptr);
         }
         else if(*ptr == ')') {
@@ -64,6 +66,7 @@ int main() {
 
                 switch(*x){
                     case '+':
+                        /* <--- Caso SUMA ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -75,6 +78,7 @@ int main() {
 
                         break;
                     case '-':
+                        /* <--- Caso RESTA ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -85,6 +89,7 @@ int main() {
 
                         break;
                     case '*':
+                        /* <--- Caso MULT ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -95,6 +100,7 @@ int main() {
 
                         break;
                     case '/':
+                        /* <--- Caso DIV ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -109,8 +115,8 @@ int main() {
             }   
         }
         else {
-            while(ordenJerarquico(scanOrdenJerarquico[top]) >= ordenJerarquico(*ptr)){
-                // Imprime los operadores con su orden respectivo
+            while(ordenJerarquico(scanOrdenJerarquico[orden]) >= ordenJerarquico(*ptr)){
+                // Imprime los operadores con su orden respectivo | Después del parentesis que se resolvió
                 char *n = stack_pop(stk1);
                 printf("%c ", *n);
 
@@ -121,6 +127,7 @@ int main() {
 
                 switch(*n){
                     case '+':
+                        /* <--- Caso SUMA ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -131,6 +138,7 @@ int main() {
 
                         break;
                     case '-':
+                        /* <--- Caso RESTA ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -141,6 +149,7 @@ int main() {
 
                         break;
                     case '*':
+                        /* <--- Caso MULTI ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -151,6 +160,7 @@ int main() {
 
                         break;
                     case '/':
+                        /* <--- Caso DIV ---> */
                         last=stack_top(stk);
                         pop1=stack_pop(stk);
                         pop2=stack_pop(stk);
@@ -161,8 +171,8 @@ int main() {
 
                         break;
                 }   
-            } stack_push(stk1,ptr);
-        } ptr++;
+            } /* Se agrega el operador al stack */ stack_push(stk1,ptr);
+        } /* Se recorre el puntero que apunta a la operación */ ptr++;
     }
 
     while(stack_isEmpty(stk1) != true) {
@@ -176,6 +186,7 @@ int main() {
 
         switch(*n){
             case '+':
+                /* <--- Caso SUMA ---> */
                 last=stack_top(stk);
                 pop1=stack_pop(stk);
                 pop2=stack_pop(stk);
@@ -186,6 +197,7 @@ int main() {
 
                 break;
             case '-':
+                /* <--- Caso RESTA ---> */
                 last=stack_top(stk);
                 pop1=stack_pop(stk);
                 pop2=stack_pop(stk);
@@ -196,6 +208,7 @@ int main() {
 
                 break;
             case '*':
+                /* <--- Caso MULTI ---> */
                 last=stack_top(stk);
                 pop1=stack_pop(stk);
                 pop2=stack_pop(stk);
@@ -206,6 +219,7 @@ int main() {
 
                 break;
             case '/':
+                /* <--- Caso DIV ---> */
                 last=stack_top(stk);
                 pop1=stack_pop(stk);
                 pop2=stack_pop(stk);
