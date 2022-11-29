@@ -15,7 +15,7 @@ typedef void * Type;
 typedef struct stack * Stack;
 typedef struct strNode * Node;
 
-typedef struct queue *Queue;
+typedef struct queue * Queue;
 
 /*		<------  STACK  ------>		*/
 
@@ -29,5 +29,14 @@ void stack_destroy(Stack);
 void print_stack(Stack);
 
 /*		<------  STACK  ------>		*/
+
+/*		<------  VERIFICACIÓN  ------>		*/
+
+char* scanInput();
+bool balanceo(char*);
+bool operatorsBalance(char*);
+
+
+/*		<------  VERIFICACIÓN  ------>		*/
 
 #endif

@@ -4,6 +4,96 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <string.h>
+#include <ctype.h>
+
+
+/*      <------  VALIDACIÓN  ------>     */
+// Creeditos a Axel, del curso de Programación de Memoria Dinámica, por facilitarme esta función.
+bool isoperator(char input){
+    switch (input){
+        case '+':
+
+        case '-':
+
+        case '*':
+
+        case '/':
+            return true;
+            break;
+        default:
+            return false;
+            break;
+       }
+}
+
+char* scanInput()
+{
+    char* input=NULL;
+    // bool flag=false;
+    size_t len=0;
+
+    do {
+        // Escanea el input del usuario
+        printf("Expresion a evaluar: ");
+        getline(&input, &len, stdin);
+        for (size_t i = 0; i <= len; i++){
+            if (input[i]=='\n'){
+                // Finaliza la cadena, incertando '\0' al final de la cadena
+                input[i]='\0';
+            }
+        }
+
+        // Comienza la comparación de espacios
+
+    } while (balanceo(input)!=true);
+
+
+
+    return input;
+}
+
+bool balanceo(char* input){
+    // printf("Expresion ingresada: %c\n", input);
+    int b = 0, parD, parI, i, operat;
+    parD = 1; parI = 1, i=0, operat=0;
+
+    do{
+        // printf("| %c |\n", input[i]);
+        if (input[i]==' ') {
+            ++b;
+            printf("Se encontro un espacio/operador faltante.\n");
+            break;
+        } else if (isalpha(input[i]) == 1 || isalpha(input[i]) == 2) {
+            ++b;
+            printf("Se encontro un valor alfanumerico.\n");
+            break;
+        } else if (input[i] == '(') {
+            ++parI;
+            // printf("Par I\n");
+        } else if (input[i] == ')' && input[i-1] != '(') {
+            ++parD;
+
+            // printf("Par D\n");
+        } else if (i==0 && isoperator(input[i])==true) {
+            printf("No se pude poner un operador al principio de la expresion.\n");
+            ++b;
+        }
+
+        ++i;
+    } while (input[i]!='\0');
+ 
+    // Retorna true si no se encontró ningún error
+    if (b==0 && (parD%parI)==0) {
+        printf("\n");
+        return true;
+    } else {
+        if ((parD%parI)!=0){
+            printf("Error en los parentesis.\n");
+        }
+    }
+}
+
+/*      <------  VALIDACIÓN  ------>     */
 
 /*      <------  STACK  ------>     */
 
@@ -146,3 +236,5 @@ void stack_destroy(Stack stk)
         free(stk);
     }
 }
+
+/*      <------  STACK  ------>     */

@@ -29,6 +29,9 @@ int main() {
 
     char* input=scanInput();
 
+    printf("input: %s\n", input);
+    system("pause");
+
     ptr = input;
     int pos = 0;
 
