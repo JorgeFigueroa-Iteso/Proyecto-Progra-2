@@ -37,4 +37,4 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 > Si lo copias, eres puto juasjuasjuas
 
 ## Estatus del proyecto
-En desarrollo
+Finalizado
