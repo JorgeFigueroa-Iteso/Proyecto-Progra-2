@@ -29,7 +29,7 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 - Jorge Ramón Figueroa Maya
 
 ## Inspectores
-- [ ] 'Jesús Ivan Echevarria Ruiz'
+- [ X ] 'Jesús Ivan Echevarria Ruiz'
 
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
