@@ -24,12 +24,12 @@ Este se realizará SIN interfaz gráfica, por lo que será en consola
 > 	(2+(3*4)) -> ((2+30*4))
 
 ## Colaboradores
-- Enoch Joaquín Álvarez Goñi
-- José Emiliano Figueroa Hernandez
-- Jorge Ramón Figueroa Maya
+- Enoch J.A.G
+- José E.F.H
+- Jorge R.F.M
 
 ## Inspectores
-- [x] 'Jesús Ivan Echevarria Ruiz'
+- [x] 'Jesús I.E.R'
 
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
